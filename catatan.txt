@@ -1,0 +1,109 @@
+utk component kita hanya buat navbar yg merupakan 
+component yg hidup disemua page (sbgai header navigasi )
+dan componentn ini di represent oleh ShareLayOut Page 
+jangan lupa di pages ada juga index.js ukt mrupakan acuan dari page2 
+antar page yg terlink.
+
+
+////catatan jalankan program dari Login.js ,ini Penjelasan jalannya semua program React-router-dom /////
+/*
+
+Login.js
+const Login = ({ setUser }) => {} 
+penjelasan:
+Penjesalan utk login dari app.js nya kita lihat utk login ada props setUser
+ <Route path='login' element={<Login setUser={setUser} />} />
+ <Route path='dashboard'
+          element={
+            <ProtectedRoute user={user}>
+              <Dashboard user={user} />
+            </ProtectedRoute>
+          }
+        />
+
+ element={<Login setUser={setUser} /> 
+ nah si jsx function terima 
+ const Login =({setUser})=> {} 
+ jika benar yg dimasukan maka object prop setUser akan berisi 
+ setuser({
+  name:name,
+  email:email,
+  
+ })  
+ nah ini masuk navigate ke dashboard 
+   navigate("/dasbboard") 
+   nah route bekerja d App,js 
+   sbb:
+   <Route path='dashboard'
+          element={
+            <ProtectedRoute user={user}>
+              <Dashboard user={user} />
+            </ProtectedRoute>
+          }
+        />
+   nah akan menuju ke ProtectedRoute periksa nah liat utk  yg di wraping
+    <Dashboard user={user} /> nah ini adlaah children sbgai children jikakita 
+    masuk pada page ProtectedRoute krn dia di armpit/wraping sama ProtectedRoute
+    nah di ProtectedRotue terlihat:
+    ada 2 pilihan si children dan  user nah ProtectedRoute check ini 
+    user jika dia bukan user maka balik ke home tertolak,
+    nah jika dia benar user maka return menuju children yg artinya :
+    <Dashboard user={user} />
+    line code:
+    const ProtectedRoute = ({ children, user }) => {
+        if (!user) {
+          return <Navigate to='/' />
+        }
+        return children}
+
+    -nah jika children berarti :
+    <Dashboard user={user} /> 
+    maka di Dasboard user sbgai prop sbb:
+  <section className='section'>
+      <h4>Heelo,{user?.name}</h4>
+    </section> 
+    nah dari rogram diatas akan merender si user yg login 
+
+*/
+
+/*
+/*
+INGAT KALAU MAU BUAT NEsteD LOOP ROUTE MAKA DIA HARUS WRAPING ROUTE2 DIBAWAH NYA 
+SBB:
+    <Route path='/' element={<SharedLayout />}> //start wraping routenya 
+       //disini buat index dan juga route anak ada didalam si route path "/"
+           <Route index element={<Home />} />
+           <Route path='about' element={<About />} />
+
+          <Route path='products' element={<SharedProductLayout />}>
+            <Route index element={<Products />} />
+            <Route path=':productId' element={<SingleProduct />} />
+          </Route>
+
+          <Route path='login' element={<Login setUser={setUser}></Login>} />
+          <Route
+            path='dashboard'
+            element={
+              <ProtectedRoute user={user}>
+                <Dashboard user={user} />
+              </ProtectedRoute>
+            }
+          />
+          <Route path='*' element={<Error />} />
+
+    </Route>  //end penutup si nested-Route
+
+
+///
+
+*/
+
+/*
+NAH KIT AMAU BIKIN NESTED LOOP UTK PRODUCT MAKA KITA HARUS BUAT JUGA 
+productShareLayout.js sprti diatas dia App.js kuta buat nested route utk products sbb:
+
+
+
+*/
+
+*/
