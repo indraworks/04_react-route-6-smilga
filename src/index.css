@@ -279,7 +279,8 @@ ul {
 }
 
 .active {
-  color: var(--primary-500);
+  /* color: var(--primary-500); */
+  color: rgb(133, 24, 88);
 }
 
 .products article {

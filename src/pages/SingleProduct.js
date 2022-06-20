@@ -20,11 +20,15 @@ const SingleProduct = () => {
   const { productId } = useParams()
   console.log(productId)
   const product = products.find((product) => product.id === productId)
-  //destruct name ,image
+  //destruct name ,image ktika id sesuai dgn product !
   const { name, image } = product
   return (
     <>
-      <h5>{name}</h5>
+      <h4>{name}</h4>
+      <span>
+        <h4>ProductId: {productId}</h4>
+      </span>
+
       <img src={image} alt={name} />
       <div>
         <Link to='/products'>back to Products List</Link>

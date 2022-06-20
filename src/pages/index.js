@@ -9,6 +9,7 @@ import Dashboard from "./Dashboard"
 import Login from "./Login"
 import ProtectedRoute from "./ProtectedRoute"
 import About from "./About"
+import ShareProductLayout from "./ShareProductLayout"
 
 export {
   Error,
@@ -20,4 +21,5 @@ export {
   Login,
   ProtectedRoute,
   SingleProduct,
+  ShareProductLayout,
 }

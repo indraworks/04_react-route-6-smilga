@@ -16,6 +16,7 @@ import {
   Dashboard,
   Login,
   ProtectedRoute,
+  ShareProductLayout,
 } from "./pages"
 
 const App = () => {
@@ -27,8 +28,12 @@ const App = () => {
         <Route path='/' element={<ShareLayout />}>
           <Route index element={<Home />} />
           <Route path='about' element={<About />} />
-          <Route path='products' element={<Products />} />
-          <Route path='products/:productId' element={<SingleProduct />} />
+
+          <Route path='products' element={<ShareProductLayout />}>
+            <Route index element={<Products />} />
+            <Route path=':productId' element={<SingleProduct />} />
+          </Route>
+
           <Route path='login' element={<Login setUser={setUser} />} />
 
           <Route
